@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form method="POST" action="add">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" aria-describedby="emailHelp" name="title">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" class="form-control" name="description" cols="80"></textarea>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-6">
+            <table class="table caption-top">
+                <thead>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Operation</th>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i<model.length; i++) { %>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><%= model[i].title %></td>
+                            <td><%= model[i].description %></td>
+                            <td>
+                                <a href="" class="btn btn-outline-dark">Done</a>
+                                <a href="/delete/<%= model[i]._id %>" class="btn btn-outline-danger">Delete</a>
+                                <a href="" class="btn btn-outline-info">Edit</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>    
+    </div>
+</div>
